@@ -1,4 +1,17 @@
 #moto {
     background-image: url('img/Moto.png');
-    
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+header {
+    font-family: "Audiowide", sans-serif;
+    font-size: 45px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
 }

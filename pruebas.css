@@ -1,15 +1,19 @@
 header {
-    background-color: red;
+    background-color: grey;
 }
 
 body {
-    background-color: yellow;
+    background-color: red;
 }
 
 main {
-    background-color: green;
+    background-color: yellow;
 }
 
 table {
     background-color: violet;
+}
+
+aside {
+    background-color: aqua;
 }
