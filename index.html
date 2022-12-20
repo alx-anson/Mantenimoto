@@ -18,15 +18,33 @@
         <h1 class="font-effect-neon p-2">ManteniMoto</h1>
     </header>
     <main class="flex-grow-1 row">
-        <section id="moto" class="col-10">
-
-        </section>
+        <div class="col-10 row p-0">
+            <section class="d-flex col-2 m-0 p-2 row align-items-center">
+                <button class="btn btn-outline-success" type="submit">Luces</button>
+                <button class="btn btn-outline-success" type="submit">Suspensión</button>
+                <button class="btn btn-outline-success" type="submit">Neumáticos</button>
+                <button class="btn btn-outline-success" type="submit">Frenos</button>
+            </section>
+            <section id="moto" class="col-8 m-0"></section>
+            <section class="d-flex col-2 m-0 p-2 row align-items-center">
+                <button class="btn btn-outline-success" type="submit">Motor</button>
+                <button class="btn btn-outline-success" type="submit">Chapa</button>
+                <button class="btn btn-outline-success" type="submit">Kit de arrastre</button>
+                <button class="btn btn-outline-success" type="submit">Otros</button>
+            </section>
+        </div>
         <aside class="col-2 d-flex flex-column p-0 justify-content-start">
-            <div class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+            <div class="d-flex py-2 px-1">
+                <input class="form-control me-2" type="search" placeholder="Manenimiento" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
             <table>
+                <thead>
+                    <tr>
+                        <th class="col-lg-2">Año</th>
+                        <th class="col-lg-10">Descripción</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td>
