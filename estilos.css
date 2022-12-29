@@ -10,16 +10,24 @@ header {
     font-family: "Audiowide", sans-serif;
     font-size: 45px;
     text-align: center;
+    background: rgb(43, 43, 43);
+    background: linear-gradient(90deg, rgba(43, 43, 43, 1) 72%, rgba(91, 22, 107, 1) 86%, rgba(129, 20, 154, 1) 95%, rgba(152, 0, 186, 1) 100%);
 }
 
 h1 {
     font-size: 2em;
 }
 
-.row {
-    margin: 0 !important;
+body {
+    background-color: #2B2B2B;
+    color: whitesmoke;
 }
 
-table {
-    
+aside {
+    background: rgb(43, 43, 43);
+    background: linear-gradient(90deg, rgba(43, 43, 43, 1) 0%, rgba(65, 30, 73, 1) 29%, rgba(91, 22, 107, 1) 61%, rgba(152, 0, 186, 1) 100%);
+}
+
+.row {
+    margin: 0 !important;
 }
