@@ -18,30 +18,30 @@
         <h1 class="font-effect-neon p-2">ManteniMoto</h1>
     </header>
     <main class="flex-grow-1 row">
-        <div class="col-10 row p-0">
+        <div class="col-9 row p-0">
             <section class="d-flex col-2 m-0 p-2 row align-items-center">
-                <button class="btn btn-outline-success" type="submit">Luces</button>
-                <button class="btn btn-outline-success" type="submit">Suspensión</button>
-                <button class="btn btn-outline-success" type="submit">Neumáticos</button>
-                <button class="btn btn-outline-success" type="submit">Frenos</button>
+                <button id="btnLuces" class="btn btn-outline-danger btn-lg" type="submit">Luces</button>
+                <button id="btnSuspension" class="btn btn-outline-danger btn-lg" type="submit">Suspensión</button>
+                <button id="btnNeumaticos" class="btn btn-outline-danger btn-lg" type="submit">Neumáticos</button>
+                <button id="btnFrenos" class="btn btn-outline-danger btn-lg" type="submit">Frenos</button>
             </section>
             <section id="moto" class="col-8 m-0"></section>
             <section class="d-flex col-2 m-0 p-2 row align-items-center">
-                <button class="btn btn-outline-success" type="submit">Motor</button>
-                <button class="btn btn-outline-success" type="submit">Chapa</button>
-                <button class="btn btn-outline-success" type="submit">Kit de arrastre</button>
-                <button class="btn btn-outline-success" type="submit">Otros</button>
+                <button id="btnMotor" class="btn btn-outline-danger btn-lg" type="submit">Motor</button>
+                <button id="btnChapa" class="btn btn-outline-danger btn-lg" type="submit">Chapa</button>
+                <button id="btnKitDeArrastre" class="btn btn-outline-danger btn-lg" type="submit">Kit de arrastre</button>
+                <button id="btnOtros" class="btn btn-outline-danger btn-lg" type="submit">Otros</button>
             </section>
         </div>
-        <aside class="col-2 d-flex flex-column p-0 justify-content-start">
+        <aside class="col-3 d-flex flex-column p-0 justify-content-start">
             <div class="d-flex py-2 px-1">
                 <input class="form-control me-2" type="search" placeholder="Manenimiento" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button class="btn btn-dark btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th class="col-lg-2">Año</th>
+                        <th class="col-lg-4">Fecha</th>
                         <th class="col-lg-10">Descripción</th>
                     </tr>
                 </thead>
