@@ -1,22 +1,21 @@
 #moto {
     background-image: url('img/Moto.png');
-    background-size: 90%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 
 }
 
-header {
+/* #cards {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+} */
+h1 {
     font-family: "Audiowide", sans-serif;
-    font-size: 45px;
+    font-size: calc(1em + 5vw);
     text-align: center;
-    background: rgb(43, 43, 43);
-    background: linear-gradient(90deg, rgba(43, 43, 43, 1) 72%, rgba(91, 22, 107, 1) 86%, rgba(129, 20, 154, 1) 95%, rgba(152, 0, 186, 1) 100%);
 }
 
-h1 {
-    font-size: 2em;
-}
+
 
 body {
     background-color: #2B2B2B;
@@ -31,3 +30,4 @@ aside {
 .row {
     margin: 0 !important;
 }
+

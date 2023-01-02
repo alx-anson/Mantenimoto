@@ -14,58 +14,136 @@
 </head>
 
 <body class="container-fluid p-0 d-flex min-vh-100 flex-column">
-    <header class="row">
+    <header>
         <h1 class="font-effect-neon p-2">ManteniMoto</h1>
     </header>
-    <main class="flex-grow-1 row">
-        <div class="col-9 row p-0">
-            <section class="d-flex col-2 m-0 p-2 row align-items-center">
-                <button id="btnLuces" class="btn btn-outline-danger btn-lg" type="submit">Luces</button>
-                <button id="btnSuspension" class="btn btn-outline-danger btn-lg" type="submit">Suspensión</button>
-                <button id="btnNeumaticos" class="btn btn-outline-danger btn-lg" type="submit">Neumáticos</button>
-                <button id="btnFrenos" class="btn btn-outline-danger btn-lg" type="submit">Frenos</button>
-            </section>
-            <section id="moto" class="col-8 m-0"></section>
-            <section class="d-flex col-2 m-0 p-2 row align-items-center">
-                <button id="btnMotor" class="btn btn-outline-danger btn-lg" type="submit">Motor</button>
-                <button id="btnChapa" class="btn btn-outline-danger btn-lg" type="submit">Chapa</button>
-                <button id="btnKitDeArrastre" class="btn btn-outline-danger btn-lg" type="submit">Kit de arrastre</button>
-                <button id="btnOtros" class="btn btn-outline-danger btn-lg" type="submit">Otros</button>
-            </section>
-        </div>
-        <aside class="col-3 d-flex flex-column p-0 justify-content-start">
-            <div class="d-flex py-2 px-1">
-                <input class="form-control me-2" type="search" placeholder="Manenimiento" aria-label="Search">
-                <button class="btn btn-dark btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">ManteniMoto</a>
+                <button type="button" class="navbar-toggler">
+                    <span class="navbar-toggler-icon" data-bs-toggle="collapse" data-bs-target="#MenuNav"></span>
+                </button>
+                <div id="MenuNav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-3">
+                        <li class="nav-item ms-2"><a class="nav-link" href="/index.html">Inicio</a></li>
+                        <li class="nav-item ms-2"><a class="nav-link" href="#">Historial</a></li>
+                        <li class="nav-item dropdown ms-2">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Añadir mantenimiento
+                            </a>
+                            <ul class="dropdown-menu">
+                                <button id="btnMotor" class="dropdown-item" href="#">Motor</button>
+                                <button id="btnLuces" class="dropdown-item" href="#">Luces</button>
+                                <button id="btnSuspension" class="dropdown-item" href="#">Suspensión</button>
+                                <button id="btnNeumaticos" class="dropdown-item" href="#">Neumáticos</button>
+                                <button id="btnFrenos" class="dropdown-item" href="#">Frenos</button>
+                                <button id="btnKitDeArrastre" class="dropdown-item" href="#">Kit de arrastre</button>
+                                <button id="btnChapa" class="dropdown-item" href="#">Chapa</button>
+                                <button id="btnOtro" class="dropdown-item" href="#">Otro</button>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="col-lg-4">Fecha</th>
-                        <th class="col-lg-10">Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <p>20/12/2020</p>
-                        </td>
-                        <td>
-                            <p>Cambio de aceite</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>24/12/2020</p>
-                        </td>
-                        <td>
-                            <p>Reglaje de válvulas</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </aside>
+        </nav>
+    </div>
+    <main class="flex-grow-1 d-flex flex-md-column">
+        <h2 class=" m-3">Para tener en cuenta...</h2>
+        <div class="d-flex flex-grow-1">
+            <section class="col-sm-8">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-2 p-2">
+
+                    <div class="col">
+                        <div class="card text-bg-secondary mb-3" style="width: 15rem;">
+                            <img src="/img/cardsImg/1.jpg" class="card-img-top" alt="Imagen">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-bg-secondary mb-3" style="width: 15rem;">
+                            <img src="/img/cardsImg/2.jpg" class="card-img-top" alt="Imagen">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-bg-secondary mb-3" style="width: 15rem;">
+                            <img src="/img/cardsImg/3.jpg" class="card-img-top" alt="Imagen">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-bg-secondary mb-3" style="width: 15rem;">
+                            <img src="/img/cardsImg/4.jpg" class="card-img-top" alt="Imagen">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the bulk
+                                    of
+                                    the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-bg-secondary mb-3" style="width: 15rem;">
+                            <img src="/img/cardsImg/5.jpg" class="card-img-top" alt="Imagen">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-bg-secondary mb-3" style="width: 15rem;">
+                            <img src="/img/cardsImg/6.jpg" class="card-img-top" alt="Imagen">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <section id="moto" class="col-sm-4 m-0"></section>
+        </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
