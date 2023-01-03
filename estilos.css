@@ -1,21 +1,25 @@
 #moto {
-    background-image: url('img/Moto.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-
+    margin-top: 30%;
+    transition: all 0.3s;
+    size: 20vh;
 }
 
-/* #cards {
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-} */
+
 h1 {
     font-family: "Audiowide", sans-serif;
     font-size: calc(1em + 5vw);
     text-align: center;
 }
 
+.bi {
+    font-size: calc(0.5em + 1.2vw);
+    text-align: center;
+}
 
+.copyright {
+    font-size: 0.9em;
+    font-weight: bold;
+}
 
 body {
     background-color: #2B2B2B;
@@ -27,7 +31,41 @@ aside {
     background: linear-gradient(90deg, rgba(43, 43, 43, 1) 0%, rgba(65, 30, 73, 1) 29%, rgba(91, 22, 107, 1) 61%, rgba(152, 0, 186, 1) 100%);
 }
 
+.cards:hover {
+    transform: scale(1.15);
+}
+
+#moto:hover {
+    transform: rotate(30deg) 
+    translateX(-40%)
+    scale(1.50);
+    
+}
+
+.cards {
+    transition: all 0.3s;
+}
+
 .row {
     margin: 0 !important;
 }
 
+#buscador {
+    width: 40vh;
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+}
+
+@media (min-width: 768px) {
+    #buscador {
+        width: 50vh;
+    }
+    
+}
+
+@media(max-width: 420px) {
+    th:nth-child(4),
+    td:nth-child(4) {
+        display: none;
+    }
+}
