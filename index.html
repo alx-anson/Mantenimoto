@@ -17,33 +17,32 @@
         <div class="container-text">
             <div class="text-md-end text-center me-4">
                 <ul class="list-unstyled list-inline m-0">
-                    <li class="list-inline-item">
+                    <li id="redesSociales" class="list-inline-item">
                         <a href="https://www.facebook.com/alejandro.ansonfernandez"
-                            class="btn-floating btn-sm text-white" target="_blank" style="font-size: 23px;">
+                            class="btn-floating btn-sm text-primary" target="_blank" style="font-size: 23px;">
                             <i class="bi bi-facebook p-2"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item">
+                    <li id="redesSociales" class="list-inline-item">
                         <a href="https://www.instagram.com/alex__anson/" target="_blank"
-                            class="btn-floating btn-sm text-white" style="font-size: 23px;">
+                            class="btn-floating btn-sm text-warning" style="font-size: 23px;">
                             <i class="bi bi-instagram p-2"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item">
-                        <a href="https://www.youtube.com/c/AlejandroAnsón" class="btn-floating btn-sm text-white"
+                    <li id="redesSociales" class="list-inline-item">
+                        <a href="https://www.youtube.com/c/AlejandroAnsón" class="btn-floating btn-sm text-danger"
                             target="_blank" style="font-size: 23px;">
                             <i class="bi bi-youtube p-2"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-
         </div>
     </header>
     <div class="container-fluid p-0 mt-2">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
-                <a href="#" class="navbar-brand">Menu</a>
+                <a href="#" class="navbar-brand mb-2 mt-2">Menu</a>
                 <button type="button" class="navbar-toggler">
                     <span class="navbar-toggler-icon" data-bs-toggle="collapse" data-bs-target="#MenuNav"></span>
                 </button>
@@ -56,14 +55,22 @@
                                 Añadir mantenimiento
                             </a>
                             <ul class="dropdown-menu">
-                                <button id="btnMotor" class="dropdown-item" href="#">Motor</button>
-                                <button id="btnLuces" class="dropdown-item" href="#">Luces</button>
-                                <button id="btnSuspension" class="dropdown-item" href="#">Suspensión</button>
-                                <button id="btnNeumaticos" class="dropdown-item" href="#">Neumáticos</button>
-                                <button id="btnFrenos" class="dropdown-item" href="#">Frenos</button>
-                                <button id="btnKitDeArrastre" class="dropdown-item" href="#">Kit de arrastre</button>
-                                <button id="btnChapa" class="dropdown-item" href="#">Chapa</button>
-                                <button id="btnOtro" class="dropdown-item" href="#">Otro</button>
+                                <button id="btnMotor" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Motor</button>
+                                <button id="btnLuces" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Luces</button>
+                                <button id="btnSuspension" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Suspensión</button>
+                                <button id="btnNeumaticos" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Neumáticos</button>
+                                <button id="btnFrenos" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Frenos</button>
+                                <button id="btnKitDeArrastre" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Kit de arrastre</button>
+                                <button id="btnChapa" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Chapa</button>
+                                <button id="btnOtro" class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#miModal">Otro</button>
                             </ul>
                         </li>
                     </ul>
@@ -72,17 +79,16 @@
         </nav>
     </div>
     <main class="flex-grow-1 d-flex row flex-md-column">
-        <h2 class="row ps-4 p-2">Para tener en cuenta...</h2>
+        <h2 class="row ps-4 p-2">A tener en cuenta...</h2>
         <div class="d-flex flex-grow-1">
-            <section class="col-sm-8">
+            <section class="col-md-8">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 pt-0 g-4 p-0">
-
                     <div class="cards">
                         <div class="col">
-                            <div class="card text-bg-secondary" style="width: 15rem;">
+                            <div class="card text-bg-secondary" >
                                 <img src="/img/cardsImg/1.jpg" class="card-img-top" alt="Imagen">
                                 <div class="card-body">
-                                    <h5 class="card-title">Distancia de seguridad</h5>
+                                    <h5 class="card-title text-warning">Distancia de seguridad</h5>
                                     <p class="card-text">Un pequeño despiste puede ser fatal. Guarda
                                         siempre la distancia de seguridad para minimizar daños.</p>
                                 </div>
@@ -92,12 +98,12 @@
 
                     <div class="cards">
                         <div class="col">
-                            <div class="card text-bg-secondary" style="width: 15rem;">
+                            <div class="card text-bg-secondary" >
                                 <img src="/img/cardsImg/2.jpg" class="card-img-top" alt="Imagen">
                                 <div class="card-body">
-                                    <h5 class="card-title">Presión de neumáticos</h5>
+                                    <h5 class="card-title text-warning">Presión de neumáticos</h5>
                                     <p class="card-text">Es importante revisar periódicamente la presión
-                                        de tus neumáticos, así evitamos un desgaste irregular y maximizamos el 
+                                        de tus neumáticos, así evitamos un desgaste irregular y maximizamos el
                                         agarre en carretera.
                                     </p>
                                 </div>
@@ -107,10 +113,10 @@
 
                     <div class="cards">
                         <div class="col">
-                            <div class="card text-bg-secondary" style="width: 15rem;">
+                            <div class="card text-bg-secondary" >
                                 <img src="/img/cardsImg/7.jpg" class="card-img-top" alt="Imagen">
                                 <div class="card-body">
-                                    <h5 class="card-title">Fecha de caducidad</h5>
+                                    <h5 class="card-title text-warning">Fecha de caducidad</h5>
                                     <p class="card-text">Un casco con más de 5 años ha perdido propiedades que
                                         nos pueden salvar la vida en caso de caída. Renueva tu viejo casco.
                                     </p>
@@ -121,11 +127,12 @@
 
                     <div class="cards">
                         <div class="col">
-                            <div class="card text-bg-secondary" style="width: 15rem;">
+                            <div class="card text-bg-secondary" >
                                 <img src="/img/cardsImg/4.jpg" class="card-img-top" alt="Imagen">
                                 <div class="card-body">
-                                    <h5 class="card-title">Equipación adecuada</h5>
-                                    <p class="card-text">El asfalto es una lija, no querrás dejarte la cara en él. No salgas
+                                    <h5 class="card-title text-warning">Equipación adecuada</h5>
+                                    <p class="card-text">El asfalto es una lija, no querrás dejarte la cara en él. No
+                                        salgas
                                         de casa sin una buena equipación, ya sea de cordura o cuero.
                                     </p>
                                 </div>
@@ -135,11 +142,12 @@
 
                     <div class="cards">
                         <div class="col">
-                            <div class="card text-bg-secondary" style="width: 15rem;">
+                            <div class="card text-bg-secondary" >
                                 <img src="/img/cardsImg/5.jpg" class="card-img-top" alt="Imagen">
                                 <div class="card-body">
-                                    <h5 class="card-title">Ruedas desgastadas</h5>
-                                    <p class="card-text">¿Quién no ha sacado los alambres de su rueda alguna vez? Mira regularmente
+                                    <h5 class="card-title text-warning">Ruedas desgastadas</h5>
+                                    <p class="card-text">¿Quién no ha sacado los alambres de su rueda alguna vez? Mira
+                                        regularmente
                                         el estado de tus ruedas, cuando llegues a los "avisadores", cambia la rueda.</p>
                                 </div>
                             </div>
@@ -148,11 +156,12 @@
 
                     <div class="cards">
                         <div class="col">
-                            <div class="card text-bg-secondary" style="width: 15rem;">
+                            <div class="card text-bg-secondary">
                                 <img src="/img/cardsImg/6.jpg" class="card-img-top" alt="Imagen">
                                 <div class="card-body">
-                                    <h5 class="card-title">Carreteras estrechas</h5>
-                                    <p class="card-text">Aunque tú vayas muy bien, puede que venga alguien que vaya muy mal.
+                                    <h5 class="card-title text-warning">Carreteras estrechas</h5>
+                                    <p class="card-text">Aunque tú vayas muy bien, puede que venga alguien que vaya muy
+                                        mal.
                                         Cuidado con las curvas sin visibilidad en los puertos de montaña.
                                     </p>
                                 </div>
@@ -161,7 +170,7 @@
                     </div>
                 </div>
             </section>
-            <section class="col-sm-4 m-0 d-none d-md-block">
+            <section class="col-md-4 m-0 d-none d-md-block">
                 <img id="moto" class="img-fluid" width="500px" src="/img/Moto.png">
             </section>
         </div>
@@ -179,7 +188,6 @@
                 </div>
 
             </div>
-
         </div>
         <div class="row align-items-center justify-content-center">
             <div class="copyright col-md-7 col-lg-8 text-center">
@@ -191,9 +199,63 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
-
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
+    <!-- Modal -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
+        <div class="modal-dialog modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-warning" id="modalTitle">Crear mantenimiento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row p-2">
+                        <div class="col">
+                            <label for="frmFecha" class="form-label">Fecha</label>
+                            <input id="frmFecha" type="date" value="" class="form-control"></input>
+                        </div>
+                        <div class="col">
+                            <label for="frmTipo" class="form-label">Tipo</label>
+                            <select id="frmTipo" class="form-select" aria-label="Tipo de mantenimiento">
+                                <option selected>Elija un tipo</option>
+                                <option value="motor">Motor</option>
+                                <option value="luces">Luces</option>
+                                <option value="suspension">Suspensión</option>
+                                <option value="neumaticos">Neumáticos</option>
+                                <option value="frenos">Frenos</option>
+                                <option value="kitdearrastre">Kit de arrastre</option>
+                                <option value="chapa">Chapa</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col">
+                            <label for="frmOdometro" class="form-label">Odómetro</label>
+                            <input type="number" class="form-control" id="frmOdometro" placeholder="Km totales">
+                            <div class="invalid-feedback">Valor erróneo</div>
+                        </div>
+                        <div class="col">
+                            <label for="frmPrecio" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="frmPrecio" placeholder="Total € gastado">
+                            <div class="invalid-feedback">Valor erróneo</div>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col">
+                            <label for="frmDescripcion" class="form-label">Descripción</label>
+                            <textarea name="descripcion" rows="10" cols="40" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

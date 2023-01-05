@@ -32,14 +32,12 @@ aside {
 }
 
 .cards:hover {
-    transform: scale(1.15);
+    transform: scale(1.10);
 }
 
 #moto:hover {
-    transform: rotate(30deg) 
-    translateX(-40%)
-    scale(1.50);
-    
+    transform: rotate(30deg) translateX(-40%) scale(1.50);
+
 }
 
 .cards {
@@ -51,17 +49,35 @@ aside {
 }
 
 #buscador {
-    width: 40vh;
+    
     margin-left: 1.2em;
     margin-right: 1.2em;
+}
+#redesSociales {
+    transition: 0.4s;
+}
+
+#redesSociales:hover {
+    transform: scale(1.1) 
+    rotateY(360deg);
+    
+}
+
+.modal-content {
+    background-image: url(/img/fondo-modal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media (min-width: 768px) {
     #buscador {
-        width: 50vh;
+        width: 30vh;
     }
-    
+    .card {
+        margin-right: 2rem;
+    }
 }
+
 
 @media(max-width: 420px) {
     th:nth-child(4),
