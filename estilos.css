@@ -9,6 +9,7 @@ h1 {
     font-family: "Audiowide", sans-serif;
     font-size: calc(1em + 5vw);
     text-align: center;
+    user-select: none;
 }
 
 .bi {
@@ -84,4 +85,8 @@ aside {
     td:nth-child(4) {
         display: none;
     }
+}
+
+tbody > tr:hover {
+    cursor: pointer;
 }
