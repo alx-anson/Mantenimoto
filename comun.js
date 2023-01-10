@@ -9,6 +9,6 @@ const frmPrecio = document.getElementById('frmPrecio');
 const frmDescripcion = document.getElementById('frmDescripcion');
 
 function clickDropMenu(evt) {
-    frmTipo.selected = "Motor" 
+    frmTipo.selected = "arreglar";
     modal.show();
 }
