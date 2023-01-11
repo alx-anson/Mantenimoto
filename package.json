@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ansonDAM/Mantenimoto/issues"
   },
-  "homepage": "https://github.com/ansonDAM/Mantenimoto#readme"
+  "homepage": "https://github.com/ansonDAM/Mantenimoto#readme",
+  "dependencies": {
+    "mongoose": "^6.8.3"
+  }
 }
