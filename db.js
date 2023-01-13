@@ -13,3 +13,15 @@ const MantenimientoSchema = new mongoose.Schema(
         coste: {type: Number, min: 0},
     }
 )
+
+const Mantenimiento = new mongoose.model("Mantenimiento", MantenimientoSchema);
+
+exports.connect = async function () {
+    mongoose.set("strictQuery", false);
+    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+}
+
+exports.close = async function() {
+    await mongoose.disconnect();
+}
+
