@@ -8,3 +8,18 @@ function clickRowTable(evt) {
         modal.show();
     }
 }
+
+btnCancelar.addEventListener('click', clickEliminarMantenimiento);
+function clickEliminarMantenimiento(evt) {
+    if (evt.innerHTML != 'Eliminar') {
+        return;
+    }
+    
+}
+
+document.getElementById("inputFecha")[0].addEventListener('click', caca);
+function caca(evt) {
+    if (evt.selected == '1') {
+        alert("caca");
+    }
+}

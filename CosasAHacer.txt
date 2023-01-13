@@ -1,2 +1,5 @@
 Instalar en casa mongoose
 
+El id hay que meterselo a la tabla con el pug, al atributo data-id.
+
+Sigo intentando obtener el valor del input-group para el js de historial.
