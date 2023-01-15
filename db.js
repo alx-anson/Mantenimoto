@@ -6,6 +6,7 @@ const MantenimientoSchema = new mongoose.Schema(
         tipo: {
             type: String,
             required: true,
+            trim: true,
             enum: ["Motor", "Luces", "Suspensión", "Neumáticos", "Frenos", "Kit de arrastre", "Chapa", "Otro"],
         },
         descripcion: { type: String },
@@ -15,12 +16,12 @@ const MantenimientoSchema = new mongoose.Schema(
     {
         virtuals: {
             fechaString: {
-              get() {
-                return this.fecha.toLocaleDateString();
-              },
+                get() {
+                    return this.fecha.toLocaleDateString();
+                },
             },
-          },
-          toJSON: { virtuals: true },
+        },
+        toJSON: { virtuals: true },
     }
 );
 
@@ -37,18 +38,24 @@ exports.close = async function () {
 
 exports.find = async function (params) {
     const query = Mantenimiento.find();
+    const orden = params.orden;
     const palabras = params.busqueda
         .split(" ")
         .map((s) => s.trim())
-        .filter((s) => s.lenght > 0);
-    if (palabras.lenght > 0) {
-        let patrones = [];
+        .filter((s) => s.length > 0);
+    if (palabras.length > 0) {
+        let patronDescripcion = [];
+        let patronTipo = [];
         palabras.forEach((palabra) => {
-            patrones.push({ name: new RegExp(palabra, "i") });
+            patronDescripcion.push({ descripcion: new RegExp(palabra, "i") });
+            patronTipo.push({ tipo: new RegExp(palabra, "i") });
         });
-        query.or(patrones);
+        query.or(patronDescripcion).or(patronTipo);
     }
-    return await query.exec;
+    if (orden && orden!="none") {
+        query.sort([['fecha', orden]]);
+    } 
+    return await query.exec();
 };
 
 exports.findById = async function (mantenimientoId) {
@@ -65,5 +72,21 @@ exports.save = async function (mantenimientoData) {
 };
 
 exports.delete = async function (mantenimientoId) {
-    return (await Mantenimiento.deleteOne({_id: mantenimientoId})).deletedCount == 1;
+    return (await Mantenimiento.deleteOne({ _id: mantenimientoId })).deletedCount == 1;
 };
+
+exports.update = async function (mantenimientoData) {
+    try {
+        const filter = { _id: mantenimientoData.id }
+        const update = {
+            fecha: mantenimientoData.fecha,
+            tipo: mantenimientoData.tipo,
+            descripcion: mantenimientoData.descripcion,
+            odometro: mantenimientoData.odometro,
+            coste: mantenimientoData.coste
+        }
+        return await Mantenimiento.findOneAndUpdate(filter, update, {runValidators: true});
+    } catch (err) {
+        return undefined;
+    }
+}

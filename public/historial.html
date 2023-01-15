@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Audiowide&effect=fire|neon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="/public/estilos.css">
+  <script src="/public/plantillaMantenimientos.js"></script>
   <script src="/public/comun.js" defer></script>
   <script src="/public/historial.js" defer></script>
 </head>
@@ -58,7 +59,7 @@
         </div>
       </div>
       <form class="d-flex me-4 mt-2 mb-2" role="search">
-        <input id="buscador" class="form-control me-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+        <input id="buscador" class="form-control me-2" type="search" placeholder="Tipo o descripción" aria-label="Search">
         <button class="btn btn-outline-light" type="submit">Buscar</button>
       </form>
     </nav>
@@ -67,15 +68,14 @@
     <div class="input-group mb-3">
       <label class="input-group-text text-bg-dark" for="inputFecha">Fecha</label>
       <select class="form-select text-bg-dark" id="inputFecha">
-        <option selected>Sin filtrar</option>
-        <option value="1">Ascendente</option>
-        <option value="2">Descendente</option>
+        <option value="none" selected>Sin filtrar</option>
+        <option value="asc">Ascendente</option>
+        <option value="desc">Descendente</option>
       </select>
     </div>
     <table class="table table-hover table-dark table-stripped m-0">
       <thead>
         <tr>
-          <th class="tableHead" scope="col">#</th>
           <th class="tableHead" scope="col">Fecha</th>
           <th class="tableHead" scope="col">Tipo</th>
           <th class="tableHead" scope="col">Descripción</th>
@@ -83,33 +83,7 @@
           <th class="tableHead" scope="col">Coste €</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>17/03/1997</td>
-          <td>Motor</td>
-          <td>Reglaje de válvulas</td>
-          <td>15.230</td>
-          <td>200</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>17/09/1997</td>
-          <td>Suspensión</td>
-          <td>Cambio de aceite y muelles</td>
-          <td>16.300</td>
-          <td>300</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>10/02/1998</td>
-          <td>Ruedas</td>
-          <td>Ruedas nuevas Michelin Pilot Power 2ct 120/70 190/55</td>
-          <td>17.230</td>
-          <td>343</td>
-        </tr>
-
-      </tbody>
+      <tbody id="cuerpoTabla"></tbody>
     </table>
   </main>
   <footer class="bg-dark text-white mt-4 pb-4">
