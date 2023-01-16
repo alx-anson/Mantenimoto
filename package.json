@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "comp-mantenimientos": "pug -c -D -n plantillaMantenimientos -o public plantillaMantenimientos.pug"
+    "comp-mantenimientos": "pug -c -D -n plantillaMantenimientos -o public plantillaMantenimientos.pug",
+    "start server": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/ansonDAM/Mantenimoto#readme",
   "dependencies": {
-    "mongoose": "^6.8.3"
+    "mongoose": "^6.8.3",
+    "express": "^4.18.2"
   }
 }

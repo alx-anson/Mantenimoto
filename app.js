@@ -1,0 +1,49 @@
+const db = require("./db.js");
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+app.use(express.static("public"));
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send(err);
+});
+
+app.get("/mantenimientos", async (req, res) => {
+    let params = {
+        orden: req.query.orden,
+        busqueda: req.query.busqueda,
+    };
+    res.json(await db.find(params));
+});
+
+app.get("/mantenimientos/:id", async (req, res) => {
+    const mantenimiento = await db.findById(req.params.id);
+    if (mantenimiento) res.json(mantenimiento);
+    else res.status(404).send(`No existe un mantenimiento con ID=${req.params.id}.`);
+});
+
+app.post("/mantenimientos", async (req, res) => {
+    const mantenimiento = await db.save(req.body);
+    if (mantenimientos) res.location(`/mantenimientos/${mantenimiento._id}`).status(201).send("Mantenimiento creado");
+    else res.status(400).send("Valores incorrectos para crear un mantenimiento.");
+});
+
+app.patch("/mantenimientos/:id", async (req, res) => {
+    const mantenimiento = await db.update(req.params.mantenimiento);
+    if (mantenimiento) res.sendStatus(204);
+    else res.status(404).send(`No existe un mantenimiento con ID=${req.params.mantenimiento.id}.`);
+});
+
+app.delete("/mantenimientos/:id", async (req, res) => {
+    if (await db.delete(req.params.id)) res.sendStatus(204);
+    else res.status(404).send(`No existe un mantenimiento con ID=${req.params.id}.`);
+});
+
+db.connect().then(() => {
+    console.log("Conectado a la base de datos.");
+    app.listen(80, () =>
+        console.log("Servidor escuchando en el puerto 80.")
+    );
+});
