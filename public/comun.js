@@ -2,12 +2,31 @@
 const modal = new bootstrap.Modal(document.getElementById("miModal"));
 const btnCancelar = document.getElementById("btnModCancelar")
 const btnGuardar = document.getElementById('btnModGuardar');
+
+
+
 // Abrir modal desde añadir mantenimiento
 document.getElementsByClassName('navAddMantenimiento')[0].addEventListener('click', clickAddMantenimiento);
 function clickAddMantenimiento(evt) {
     btnCancelar.innerHTML = 'Cancelar';
     modal.show();
 }
+const frmTipo = document.getElementById("frmTipo");
+const frmFecha = document.getElementById("frmFecha");
+const frmDescripcion = document.getElementById("frmDescripcion");
+const frmOdometro = document.getElementById("frmOdometro");
+const frmCoste = document.getElementById("frmCoste");
+btnGuardar.addEventListener('click', async () => { 
+    const mantenimientoData = {
+        fecha: frmFecha.value, 
+        tipo: frmTipo.selected,
+        descripcion: frmDescripcion.value,
+        odometro: frmOdometro.value,
+        coste: frmCoste.value
+    }
+    await saveMantenimiento(mantenimientoData);
+    
+});
 
 
 // ---- Fetch ------
@@ -26,7 +45,7 @@ async function enviarFetch(url, metodo = "GET", body) {
             else return await resp.text();
         } else throw resp.statusText;
     } catch (err) {
-        mostrarAlerta("Hubo un problema: " + err);
+        alert("Hubo un problema " + err)
     }
 }
 

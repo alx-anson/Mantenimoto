@@ -1,10 +1,12 @@
 //  Abrir modal desde tabla
-const frmTipo = document.getElementById("frmTipo");
 const cuerpoTabla = document.getElementById("cuerpoTabla");
+
+let idFila = undefined;
 
 document.getElementsByClassName('table')[0].addEventListener('click', clickRowTable);
 function clickRowTable(evt) {
     if (!evt.target.classList.contains('tableHead')) {
+        idFila = evt.target.closest("tr").dataset.id;
         btnCancelar.innerHTML = "Eliminar";
         modal.show();
     }
@@ -13,7 +15,8 @@ function clickRowTable(evt) {
 btnCancelar.addEventListener('click', clickEliminarMantenimiento);
 function clickEliminarMantenimiento(evt) {
     if (evt.innerHTML != 'Eliminar') {
-        return;
+        // deleteMantenimiento(idFila);
+        alert(idFila);
     }
 
 }

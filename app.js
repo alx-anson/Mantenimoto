@@ -26,7 +26,7 @@ app.get("/mantenimientos/:id", async (req, res) => {
 
 app.post("/mantenimientos", async (req, res) => {
     const mantenimiento = await db.save(req.body);
-    if (mantenimientos) res.location(`/mantenimientos/${mantenimiento._id}`).status(201).send("Mantenimiento creado");
+    if (mantenimiento) res.location(`/mantenimientos/${mantenimiento._id}`).status(201).send("Mantenimiento creado");
     else res.status(400).send("Valores incorrectos para crear un mantenimiento.");
 });
 
