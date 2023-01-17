@@ -19,12 +19,12 @@ const frmCoste = document.getElementById("frmCoste");
 btnGuardar.addEventListener('click', async () => { 
     const mantenimientoData = {
         fecha: frmFecha.value, 
-        tipo: frmTipo.selected,
+        tipo: frmTipo.value,
         descripcion: frmDescripcion.value,
         odometro: frmOdometro.value,
         coste: frmCoste.value
     }
-    await saveMantenimiento(mantenimientoData);
+     await saveMantenimiento(mantenimientoData);
     
 });
 

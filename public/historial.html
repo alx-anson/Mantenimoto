@@ -58,18 +58,17 @@
           </ul>
         </div>
       </div>
-      <form class="d-flex me-4 mt-2 mb-2" role="search">
+      <div class="d-flex me-4 mt-2 mb-2" role="search">
         <input id="buscador" class="form-control me-2" type="search" placeholder="Tipo o descripción" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+        <button id="btnBuscar" class="btn btn-outline-light">Buscar</button>
+      </div>
     </nav>
   </div>
   <main class="flex-grow-1 d-flex row flex-md-column ps-md-4 pe-md-4">
     <div class="input-group mb-3">
       <label class="input-group-text text-bg-dark" for="inputFecha">Fecha</label>
       <select class="form-select text-bg-dark" id="inputFecha">
-        <option value="none" selected>Sin filtrar</option>
-        <option value="asc">Ascendente</option>
+        <option value="asc" selected>Ascendente</option>
         <option value="desc">Descendente</option>
       </select>
     </div>
@@ -131,14 +130,14 @@
               <label for="frmTipo" class="form-label">Tipo</label>
               <select id="frmTipo" class="form-select" aria-label="Tipo de mantenimiento">
                 <option selected>Elija un tipo</option>
-                <option value="motor">Motor</option>
-                <option value="luces">Luces</option>
-                <option value="suspension">Suspensión</option>
-                <option value="neumaticos">Neumáticos</option>
-                <option value="frenos">Frenos</option>
-                <option value="kitdearrastre">Kit de arrastre</option>
-                <option value="chapa">Chapa</option>
-                <option value="otro">Otro</option>
+                <option value="Motor">Motor</option>
+                <option value="Luces">Luces</option>
+                <option value="Suspension">Suspensión</option>
+                <option value="Neumaticos">Neumáticos</option>
+                <option value="Frenos">Frenos</option>
+                <option value="Kitdearrastre">Kit de arrastre</option>
+                <option value="Chapa">Chapa</option>
+                <option value="Otro">Otro</option>
               </select>
             </div>
           </div>
