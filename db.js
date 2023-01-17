@@ -29,7 +29,7 @@ const Mantenimiento = new mongoose.model("Mantenimiento", MantenimientoSchema);
 
 exports.connect = async function () {
     mongoose.set("strictQuery", false);
-    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    await mongoose.connect(process.env.MONGODB_URL);
 };
 
 exports.close = async function () {

@@ -15,10 +15,16 @@ async function cargarTabla() {
 cargarTabla();
 
 document.getElementsByClassName('table')[0].addEventListener('click', clickRowTable);
-function clickRowTable(evt) {
+async function clickRowTable(evt) {
     if (!evt.target.classList.contains('tableHead')) {
         idFila = evt.target.closest("tr").dataset.id;
+        let mantenimiento = await findMantenimiento(idFila);
         btnCancelar.innerHTML = "Eliminar";
+        frmTipo.value = mantenimiento.tipo;
+        frmFecha.value = new Date(mantenimiento.fecha).toISOString().slice(0, 10);
+        frmDescripcion.value = mantenimiento.descripcion;
+        frmOdometro.value = mantenimiento.odometro;
+        frmCoste.value = mantenimiento.coste;
         modal.show();
     }
 }
@@ -31,8 +37,7 @@ function clickBuscar(evt) {
 btnCancelar.addEventListener('click', clickEliminarMantenimiento);
 function clickEliminarMantenimiento(evt) {
     if (evt.innerHTML != 'Eliminar') {
-        // deleteMantenimiento(idFila);
-        alert(idFila);
+        deleteMantenimiento(idFila);
     }
 
 }

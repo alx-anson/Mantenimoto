@@ -1,6 +1,9 @@
+require("dotenv").config();
 const db = require("./db.js");
 const express = require("express");
 const app = express();
+
+const PORT = process.env.PUERTO;
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -43,7 +46,7 @@ app.delete("/mantenimientos/:id", async (req, res) => {
 
 db.connect().then(() => {
     console.log("Conectado a la base de datos.");
-    app.listen(80, () =>
-        console.log("Servidor escuchando en el puerto 80.")
+    app.listen(PORT, () =>
+        console.log("Servidor escuchando en el puerto " + PORT)
     );
 });

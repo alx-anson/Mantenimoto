@@ -16,16 +16,20 @@ const frmFecha = document.getElementById("frmFecha");
 const frmDescripcion = document.getElementById("frmDescripcion");
 const frmOdometro = document.getElementById("frmOdometro");
 const frmCoste = document.getElementById("frmCoste");
-btnGuardar.addEventListener('click', async () => { 
+btnGuardar.addEventListener('click', async () => {
     const mantenimientoData = {
-        fecha: frmFecha.value, 
+        fecha: frmFecha.value,
         tipo: frmTipo.value,
         descripcion: frmDescripcion.value,
         odometro: frmOdometro.value,
         coste: frmCoste.value
     }
-     await saveMantenimiento(mantenimientoData);
-    
+    if (btnCancelar.innerHTML = 'Cancelar') {
+        await saveMantenimiento(mantenimientoData);
+    } else {
+        await updateMantenimiento(mantenimientoData);
+    }
+
 });
 
 

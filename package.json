@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/ansonDAM/Mantenimoto#readme",
   "dependencies": {
-    "mongoose": "^6.8.3",
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.3"
   }
 }
