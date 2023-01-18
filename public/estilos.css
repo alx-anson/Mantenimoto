@@ -92,6 +92,14 @@ tbody > tr:hover {
 }
 
 .input-group {
-    width: 13.2em;
+    width: 15em;
     height: 2em
+}
+
+#btnTotalGastado {
+    width: 200px;
+}
+
+#divTotalGastado {
+    width: 135px;
 }

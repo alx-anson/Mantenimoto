@@ -74,16 +74,15 @@
           <option value="desc">Descendente</option>
         </select>
       </div>
-      <div class="col-6 justify-content-end" >
+      <div id="divTotalGastado" class="col-6">
         <p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTotal" aria-expanded="false" aria-controls="collapseTotal">
-            Total €
+          <button id="btnTotalGastado"class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTotal" aria-expanded="false" aria-controls="collapseTotal">
+            Total gastado €
           </button>
         </p>
         <div>
-          <div class="collapse collapse-horizontal" id="collapseTotal">
-            <div class="card card-body" style="width: 300px;">
-              //TODO intento hacer esto, pero es una kk.
+          <div class="collapse collapse-vertical" id="collapseTotal">
+            <div id="totalGastado" class="card card-body text-bg-warning text-center">
             </div>
           </div>
         </div>

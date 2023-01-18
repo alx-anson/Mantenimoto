@@ -10,6 +10,7 @@ document.getElementsByClassName('navAddMantenimiento')[0].addEventListener('clic
 function clickAddMantenimiento(evt) {
     limpiarModal();
     btnCancelar.innerHTML = 'Cancelar';
+    btnGuardar.innerHTML = 'Guardar';
     modal.show();
 }
 const frmTipo = document.getElementById("frmTipo");
