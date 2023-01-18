@@ -96,10 +96,11 @@ tbody > tr:hover {
     height: 2em
 }
 
-#btnTotalGastado {
+#divTotalGastado {
     width: 200px;
 }
 
-#divTotalGastado {
-    width: 135px;
+#totalGastado {
+    width: fit-content;
+    height: fit-content;
 }
