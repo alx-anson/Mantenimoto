@@ -17,7 +17,11 @@ const MantenimientoSchema = new mongoose.Schema(
         virtuals: {
             fechaString: {
                 get() {
-                    return this.fecha.toLocaleDateString();
+                    if (this.fecha) {
+                        return this.fecha.toLocaleDateString();
+                    } else {
+                        return "No definido.";
+                    }
                 },
             },
         },
@@ -52,9 +56,9 @@ exports.find = async function (params) {
         });
         query.or(patronDescripcion).or(patronTipo);
     }
-    if (orden && orden!="none") {
+    if (orden && orden != "none") {
         query.sort([['fecha', orden]]);
-    } 
+    }
     return await query.exec();
 };
 
@@ -67,6 +71,7 @@ exports.save = async function (mantenimientoData) {
         const mantenimiento = new Mantenimiento(mantenimientoData);
         return await mantenimiento.save();
     } catch (err) {
+        console.log(err)
         return undefined;
     }
 };
@@ -85,7 +90,7 @@ exports.update = async function (mantenimientoData) {
             odometro: mantenimientoData.odometro,
             coste: mantenimientoData.coste
         }
-        return await Mantenimiento.findOneAndUpdate(filter, update, {runValidators: true});
+        return await Mantenimiento.findOneAndUpdate(filter, update, { runValidators: true });
     } catch (err) {
         return undefined;
     }

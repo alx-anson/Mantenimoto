@@ -8,6 +8,7 @@ const btnGuardar = document.getElementById('btnModGuardar');
 // Abrir modal desde añadir mantenimiento
 document.getElementsByClassName('navAddMantenimiento')[0].addEventListener('click', clickAddMantenimiento);
 function clickAddMantenimiento(evt) {
+    limpiarModal();
     btnCancelar.innerHTML = 'Cancelar';
     modal.show();
 }
@@ -16,21 +17,39 @@ const frmFecha = document.getElementById("frmFecha");
 const frmDescripcion = document.getElementById("frmDescripcion");
 const frmOdometro = document.getElementById("frmOdometro");
 const frmCoste = document.getElementById("frmCoste");
+
 btnGuardar.addEventListener('click', async () => {
-    const mantenimientoData = {
+    const mantenimiento = {
         fecha: frmFecha.value,
         tipo: frmTipo.value,
         descripcion: frmDescripcion.value,
         odometro: frmOdometro.value,
         coste: frmCoste.value
     }
-    if (btnCancelar.innerHTML = 'Cancelar') {
-        await saveMantenimiento(mantenimientoData);
+    if (btnGuardar.innerHTML == 'Guardar') {
+        await saveMantenimiento(mantenimiento);
     } else {
-        await updateMantenimiento(mantenimientoData);
+        actualizarMantenimiento(mantenimiento);
     }
-
+    modal.hide();
+    cargarTabla();
 });
+
+btnCancelar.addEventListener('click', evt => {
+    if (btnCancelar.innerHTML == "Eliminar") {
+        eliminarMantenimiento();
+    }
+    modal.hide();
+    cargarTabla();
+});
+
+function limpiarModal() {
+    frmTipo.value = "Elija un tipo";
+    frmFecha.value = "";
+    frmDescripcion.value = "";
+    frmOdometro.value = "";
+    frmCoste.value = "";
+}
 
 
 // ---- Fetch ------

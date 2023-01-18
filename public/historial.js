@@ -20,6 +20,7 @@ async function clickRowTable(evt) {
         idFila = evt.target.closest("tr").dataset.id;
         let mantenimiento = await findMantenimiento(idFila);
         btnCancelar.innerHTML = "Eliminar";
+        btnGuardar.innerHTML = "Actualizar";
         frmTipo.value = mantenimiento.tipo;
         frmFecha.value = new Date(mantenimiento.fecha).toISOString().slice(0, 10);
         frmDescripcion.value = mantenimiento.descripcion;
@@ -29,20 +30,19 @@ async function clickRowTable(evt) {
     }
 }
 
+function eliminarMantenimiento () {
+    deleteMantenimiento(idFila);
+}
+
+function actualizarMantenimiento(mantenimientoData) {
+    mantenimientoData.id = idFila;
+    updateMantenimiento(mantenimientoData);
+};
+
 btnBuscar.addEventListener('click', clickBuscar);
 function clickBuscar(evt) {
     cargarTabla();
 }
-
-btnCancelar.addEventListener('click', clickEliminarMantenimiento);
-function clickEliminarMantenimiento(evt) {
-    if (evt.innerHTML != 'Eliminar') {
-        deleteMantenimiento(idFila);
-    }
-
-}
-
-
 
 ordenCronologico.addEventListener('click', clickOrden);
 function clickOrden(evt) {

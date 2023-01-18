@@ -62,8 +62,6 @@ body {
 
 .modal-content {
     background-color: #2B2B2B;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .modal-title {
     font-size: 2em;
@@ -80,9 +78,12 @@ body {
 
 
 @media(max-width: 420px) {
-    th:nth-child(4),
+    /* th:nth-child(4),
     td:nth-child(4) {
         display: none;
+    } */
+    .input-group {
+        width: 10em;
     }
 }
 
@@ -91,6 +92,6 @@ tbody > tr:hover {
 }
 
 .input-group {
-    width: 18em;
-    
+    width: 13.2em;
+    height: 2em
 }

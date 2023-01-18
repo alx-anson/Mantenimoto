@@ -59,31 +59,50 @@
         </div>
       </div>
       <div class="d-flex me-4 mt-2 mb-2" role="search">
-        <input id="buscador" class="form-control me-2" type="search" placeholder="Tipo o descripción" aria-label="Search">
+        <input id="buscador" class="form-control me-2" type="search" placeholder="Tipo o descripción"
+          aria-label="Search">
         <button id="btnBuscar" class="btn btn-outline-light">Buscar</button>
       </div>
     </nav>
   </div>
-  <main class="flex-grow-1 d-flex row flex-md-column ps-md-4 pe-md-4">
-    <div class="input-group mb-3">
-      <label class="input-group-text text-bg-dark" for="inputFecha">Fecha</label>
-      <select class="form-select text-bg-dark" id="inputFecha">
-        <option value="asc" selected>Ascendente</option>
-        <option value="desc">Descendente</option>
-      </select>
+  <main class="flex-grow-1 d-flex flex-column ps-md-4 pe-md-4">
+    <div class="row justify-content-between">
+      <div class="col-6 input-group mb-3">
+        <label class="input-group-text text-bg-dark" for="inputFecha">Fecha</label>
+        <select class="form-select text-bg-dark" id="inputFecha">
+          <option value="asc" selected>Ascendente</option>
+          <option value="desc">Descendente</option>
+        </select>
+      </div>
+      <div class="col-6 justify-content-end" >
+        <p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTotal" aria-expanded="false" aria-controls="collapseTotal">
+            Total €
+          </button>
+        </p>
+        <div>
+          <div class="collapse collapse-horizontal" id="collapseTotal">
+            <div class="card card-body" style="width: 300px;">
+              //TODO intento hacer esto, pero es una kk.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <table class="table table-hover table-dark table-stripped m-0">
-      <thead>
-        <tr>
-          <th class="tableHead" scope="col">Fecha</th>
-          <th class="tableHead" scope="col">Tipo</th>
-          <th class="tableHead" scope="col">Descripción</th>
-          <th class="tableHead" scope="col">Odómetro</th>
-          <th class="tableHead" scope="col">Coste €</th>
-        </tr>
-      </thead>
-      <tbody id="cuerpoTabla"></tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-hover table-dark table-stripped">
+        <thead>
+          <tr>
+            <th class="tableHead" scope="col">Fecha</th>
+            <th class="tableHead" scope="col">Tipo</th>
+            <th class="tableHead" scope="col">Descripción</th>
+            <th class="tableHead" scope="col">Odómetro</th>
+            <th class="tableHead" scope="col">€</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTabla"></tbody>
+      </table>
+    </div>
   </main>
   <footer class="bg-dark text-white mt-4 pb-4">
     <div class="container text-center text-md-left">
@@ -132,10 +151,10 @@
                 <option selected>Elija un tipo</option>
                 <option value="Motor">Motor</option>
                 <option value="Luces">Luces</option>
-                <option value="Suspension">Suspensión</option>
-                <option value="Neumaticos">Neumáticos</option>
+                <option value="Suspensión">Suspensión</option>
+                <option value="Neumáticos">Neumáticos</option>
                 <option value="Frenos">Frenos</option>
-                <option value="Kitdearrastre">Kit de arrastre</option>
+                <option value="Kit de arrastre">Kit de arrastre</option>
                 <option value="Chapa">Chapa</option>
                 <option value="Otro">Otro</option>
               </select>
@@ -161,7 +180,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button id="btnModCancelar" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+          <button id="btnModCancelar" type="button" class="btn btn-danger">Cancelar</button>
           <button id="btnModGuardar" type="button" class="btn btn-success">Guardar</button>
         </div>
       </div>
