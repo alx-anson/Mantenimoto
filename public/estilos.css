@@ -2,12 +2,14 @@
     margin-top: 30%;
     transition: all 0.3s;
     size: 20vh;
+    position: relative;
+    z-index: 100;
 }
 
 
 h1 {
     font-family: "Audiowide", sans-serif;
-    font-size: calc(1em + 5vw);
+    font-size: calc(1.3em + 5vw);
     text-align: center;
     user-select: none;
 }
@@ -33,7 +35,7 @@ body {
 }
 
 #moto:hover {
-    transform: rotate(30deg) translateX(-40%) scale(1.50);
+    transform: rotate(28deg) translateX(-30%) scale(1.20);
 
 }
 
