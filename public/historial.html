@@ -70,11 +70,11 @@
       <div class="col-6 input-group mb-3">
         <label class="input-group-text text-bg-dark" for="inputFecha">Fecha</label>
         <select class="form-select text-bg-dark" id="inputFecha">
-          <option value="asc" selected>Ascendente</option>
-          <option value="desc">Descendente</option>
+          <option value="desc" selected>Descendente</option>
+          <option value="asc">Ascendente</option>
         </select>
       </div>
-      <div id="divTotalGastado" class="col-6 me-5">
+      <div id="divTotalGastado" class="col-6 me-4">
         <p>
           <button id="btnTotalGastado"class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTotal" aria-expanded="false" aria-controls="collapseTotal">
             Total gastado €
@@ -96,7 +96,7 @@
             <th class="tableHead" scope="col">Tipo</th>
             <th class="tableHead" scope="col">Descripción</th>
             <th class="tableHead" scope="col">Odómetro</th>
-            <th class="tableHead" scope="col">€</th>
+            <th class="tableHead" scope="col">Precio</th>
           </tr>
         </thead>
         <tbody id="cuerpoTabla"></tbody>
@@ -142,13 +142,13 @@
           <div class="row p-2">
             <div class="col">
               <label for="frmFecha" class="form-label">Fecha</label>
-              <input id="frmFecha" type="date" value="" class="form-control"></input>
+              <input id="frmFecha" type="date" value="" class="form-control" required></input>
+              <div class="invalid-feedback">Introduzca una fecha correcta</div>
             </div>
             <div class="col">
               <label for="frmTipo" class="form-label">Tipo</label>
-              <select id="frmTipo" class="form-select" aria-label="Tipo de mantenimiento">
-                <option selected>Elija un tipo</option>
-                <option value="Motor">Motor</option>
+              <select id="frmTipo" class="form-select" aria-label="Tipo de mantenimiento" required>
+                <option value="Motor" selected>Motor</option>
                 <option value="Luces">Luces</option>
                 <option value="Suspensión">Suspensión</option>
                 <option value="Neumáticos">Neumáticos</option>
@@ -158,17 +158,18 @@
                 <option value="Otro">Otro</option>
               </select>
             </div>
+            <div class="invalid-feedback">Introduce un tipo correcto</div>
           </div>
           <div class="row p-2">
             <div class="col">
               <label for="frmOdometro" class="form-label">Odómetro</label>
-              <input type="number" class="form-control" id="frmOdometro" placeholder="Km totales">
-              <div class="invalid-feedback">Valor erróneo</div>
+              <input type="number" class="form-control" id="frmOdometro" placeholder="Km totales" min="0" required>
+              <div class="invalid-feedback">Introduce un valor correcto</div>
             </div>
             <div class="col">
               <label for="frmCoste" class="form-label">Precio</label>
-              <input type="number" class="form-control" id="frmCoste" placeholder="Coste total €">
-              <div class="invalid-feedback">Valor erróneo</div>
+              <input type="number" class="form-control" id="frmCoste" placeholder="Coste total €" min="0" required>
+              <div class="invalid-feedback">Introduce un precio correcto</div>
             </div>
           </div>
           <div class="row p-2">

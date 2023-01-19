@@ -46,23 +46,24 @@ body {
 }
 
 #buscador {
-    
+
     margin-left: 1.2em;
     margin-right: 1.2em;
 }
+
 #redesSociales {
     transition: 0.4s;
 }
 
 #redesSociales:hover {
-    transform: scale(1.1) 
-    rotateY(360deg);
-    
+    transform: scale(1.1) rotateY(360deg);
+
 }
 
 .modal-content {
     background-color: #2B2B2B;
 }
+
 .modal-title {
     font-size: 2em;
 }
@@ -71,23 +72,25 @@ body {
     #buscador {
         width: 30vh;
     }
+
     .card {
         margin-right: 2rem;
     }
 }
 
-
 @media(max-width: 420px) {
-    /* th:nth-child(4),
-    td:nth-child(4) {
+
+    th:nth-child(3),
+    td:nth-child(3) {
         display: none;
-    } */
+    }
+
     .input-group {
         width: 10em;
     }
 }
 
-tbody > tr:hover {
+tbody>tr:hover {
     cursor: pointer;
 }
 

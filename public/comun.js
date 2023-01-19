@@ -3,7 +3,20 @@ const modal = new bootstrap.Modal(document.getElementById("miModal"));
 const btnCancelar = document.getElementById("btnModCancelar")
 const btnGuardar = document.getElementById('btnModGuardar');
 
+const frmTipo = document.getElementById("frmTipo");
+const frmFecha = document.getElementById("frmFecha");
+const frmDescripcion = document.getElementById("frmDescripcion");
+const frmOdometro = document.getElementById("frmOdometro");
+const frmCoste = document.getElementById("frmCoste");
 
+[frmTipo, frmFecha, frmOdometro, frmCoste].forEach((i) => {
+    i.addEventListener("blur", () => {
+        btnGuardar.disabled = false;
+        [frmTipo, frmFecha, frmOdometro, frmCoste].forEach((j) => {
+            if (!j.validity.valid) btnGuardar.disabled = true;
+        });
+    });
+});
 
 // Abrir modal desde añadir mantenimiento
 document.getElementsByClassName('navAddMantenimiento')[0].addEventListener('click', clickAddMantenimiento);
@@ -11,13 +24,10 @@ function clickAddMantenimiento(evt) {
     limpiarModal();
     btnCancelar.innerHTML = 'Cancelar';
     btnGuardar.innerHTML = 'Guardar';
+
+    btnGuardar.disabled = true;
     modal.show();
 }
-const frmTipo = document.getElementById("frmTipo");
-const frmFecha = document.getElementById("frmFecha");
-const frmDescripcion = document.getElementById("frmDescripcion");
-const frmOdometro = document.getElementById("frmOdometro");
-const frmCoste = document.getElementById("frmCoste");
 
 btnGuardar.addEventListener('click', async () => {
     const mantenimiento = {
@@ -32,6 +42,7 @@ btnGuardar.addEventListener('click', async () => {
     } else {
         actualizarMantenimiento(mantenimiento);
     }
+
     modal.hide();
     cargarTabla();
 });
@@ -45,7 +56,7 @@ btnCancelar.addEventListener('click', evt => {
 });
 
 function limpiarModal() {
-    frmTipo.value = "Elija un tipo";
+    frmTipo.value = "Otro";
     frmFecha.value = "";
     frmDescripcion.value = "";
     frmOdometro.value = "";

@@ -28,6 +28,7 @@ async function clickRowTable(evt) {
         frmDescripcion.value = mantenimiento.descripcion;
         frmOdometro.value = mantenimiento.odometro;
         frmCoste.value = mantenimiento.coste;
+        btnGuardar.disabled = false;
         modal.show();
     }
 }
@@ -62,5 +63,5 @@ btnTotalGastado.addEventListener('click', async (evt) => {
 function obtenerTotal(mantenimientos) {
     let total = 0;
     mantenimientos.forEach(coste => total+=coste.coste);
-    return total;
+    return total.toFixed(2);
 }

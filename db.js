@@ -71,8 +71,7 @@ exports.save = async function (mantenimientoData) {
         const mantenimiento = new Mantenimiento(mantenimientoData);
         return await mantenimiento.save();
     } catch (err) {
-        console.log(err)
-        return undefined;
+        return err;
     }
 };
 
@@ -92,6 +91,6 @@ exports.update = async function (mantenimientoData) {
         }
         return await Mantenimiento.findOneAndUpdate(filter, update, { runValidators: true });
     } catch (err) {
-        return undefined;
+        return err;
     }
 }
