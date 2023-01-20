@@ -1,5 +1,3 @@
-// const twitter = require("../twitter.js");
-
 //---Modal---
 const audio = new Audio("/audio/sonido.mp3");
 const modal = new bootstrap.Modal(document.getElementById("miModal"));
@@ -11,6 +9,8 @@ const frmFecha = document.getElementById("frmFecha");
 const frmDescripcion = document.getElementById("frmDescripcion");
 const frmOdometro = document.getElementById("frmOdometro");
 const frmCoste = document.getElementById("frmCoste");
+
+const cards = document.getElementsByClassName("card-text");
 
 const moto = document.getElementById("moto");
 if (moto != null) {
@@ -73,10 +73,15 @@ function limpiarModal() {
     frmCoste.value = "";
 }
 
-// let twits = twitter.getTwits();
-// console.log(twits);
 
-
+async function cargarCards () {
+    twits = await findTwits();
+    for (i = 0; i<=6; i++) {
+        cards[i].innerHTML = twits[i].texto;
+    }
+    console.log(twits[1].texto);
+}
+cargarCards();
 
 // ---- Fetch ------
 async function enviarFetch(url, metodo = "GET", body) {
@@ -115,4 +120,8 @@ async function updateMantenimiento(mantenimientoData) {
 }
 async function deleteMantenimiento(id) {
     return await enviarFetch(`/mantenimientos/${id}`, "DELETE");
+}
+
+async function findTwits() {
+    return await enviarFetch("/twits");
 }

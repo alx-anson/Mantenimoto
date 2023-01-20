@@ -2,6 +2,7 @@ require("dotenv").config();
 const db = require("./db.js");
 const express = require("express");
 const app = express();
+const twitter = require("./twitter.js"); //*
 
 const PORT = process.env.PUERTO;
 
@@ -50,3 +51,8 @@ db.connect().then(() => {
         console.log("Servidor escuchando en el puerto " + PORT)
     );
 });
+
+app.get("/twits", async (req, res) => {
+    res.json(await twitter.getTwits());
+});
+

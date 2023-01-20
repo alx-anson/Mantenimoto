@@ -9,15 +9,24 @@ var T = new Twit({
     strictSSL: true,     // optional - requires SSL certificates to be valid.
 });
 
-let twits;
-T.get('search/tweets', { q: '#RevistaMoto', count: 100 }, function (err, data, response) {
-    twits = data.statuses.map(twit => procesarTwit(twit))
+let twits = [];
+T.get('search/tweets', { q: '#MotoGPxESPN', count: 100 }, function (err, data, response) {
+    twits = data.statuses.map(twit => cogerTexto(twit));
 });
 
-function procesarTwit(twit) {
-    return { texto: twit.text}
+function cogerTexto(twit) {
+    return { texto: twit.text }
 };
 
-exports.getTwits = function () {
-    return twits;
+function quitarRepetidos() {
+    let twitsLimpios = [];
+    for (twit of twits) {
+        if (!twit.texto.includes("RT")) {
+            twitsLimpios.push(twit);
+        }
+    }
+    return twitsLimpios;
 }
+exports.getTwits = async function () {
+    return quitarRepetidos().slice(0,6);
+};
