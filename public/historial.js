@@ -1,4 +1,3 @@
-//  Abrir modal desde tabla
 const cuerpoTabla = document.getElementById("cuerpoTabla");
 const buscador = document.getElementById("buscador");
 const ordenCronologico = document.getElementById("inputFecha");
@@ -27,7 +26,7 @@ async function clickRowTable(evt) {
         frmFecha.value = new Date(mantenimiento.fecha).toISOString().slice(0, 10);
         frmDescripcion.value = mantenimiento.descripcion;
         frmOdometro.value = mantenimiento.odometro;
-        frmCoste.value = mantenimiento.coste;
+        frmCoste.value = mantenimiento.coste.$numberDecimal;
         btnGuardar.disabled = false;
         modal.show();
     }
@@ -53,15 +52,12 @@ function clickOrden(evt) {
 }
 
 btnTotalGastado.addEventListener('click', async (evt) => {
-    let orden = "none";
-    let busqueda = "";
-    let mantenimientos = await findMantenimientos(orden, busqueda);
+    let mantenimientos = await findMantenimientos("none", "");
     totalGastado.innerHTML = obtenerTotal(mantenimientos) + "€";
-
 })
 
 function obtenerTotal(mantenimientos) {
     let total = 0;
-    mantenimientos.forEach(coste => total+=coste.coste);
+    mantenimientos.forEach(coste => total+= parseFloat(coste.coste.$numberDecimal));
     return total.toFixed(2);
 }

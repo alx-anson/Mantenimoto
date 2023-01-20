@@ -11,7 +11,7 @@ const MantenimientoSchema = new mongoose.Schema(
         },
         descripcion: { type: String },
         odometro: { type: Number, min: 0 },
-        coste: { type: Number, min: 0 },
+        coste: { type: mongoose.Types.Decimal128, min: 0 },
     },
     {
         virtuals: {
