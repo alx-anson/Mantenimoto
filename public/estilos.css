@@ -1,27 +1,9 @@
-#moto {
-    margin-top: 30%;
-    transition: all 0.3s;
-    size: 20vh;
-    position: relative;
-    z-index: 100;
-}
-
-
-h1 {
+/* Título ManteniMoto */
+h1 { 
     font-family: "Audiowide", sans-serif;
     font-size: calc(1.3em + 5vw);
     text-align: center;
     user-select: none;
-}
-
-.bi {
-    font-size: calc(0.5em + 1.2vw);
-    text-align: center;
-}
-
-.copyright {
-    font-size: 0.9em;
-    font-weight: bold;
 }
 
 body {
@@ -29,28 +11,15 @@ body {
     color: whitesmoke;
 }
 
-
-.cards:hover {
-    transform: scale(1.10);
-}
-
-#moto:hover {
-    transform: rotate(28deg) translateX(-30%) scale(1.20);
-
-}
-
-.cards {
-    transition: all 0.3s;
-}
-
-.row {
-    margin: 0 !important;
-}
-
 #buscador {
-
     margin-left: 1.2em;
     margin-right: 1.2em;
+}
+
+/* Botones redes */
+.bi {
+    font-size: calc(0.5em + 1.2vw);
+    text-align: center;
 }
 
 #redesSociales {
@@ -59,7 +28,35 @@ body {
 
 #redesSociales:hover {
     transform: scale(1.1) rotateY(360deg);
+}
 
+.copyright {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.cards {
+    transition: all 0.3s;
+}
+
+.cards:hover {
+    transform: scale(1.10);
+}
+
+/* Quitar apariencia de enlace al texto de las tarjetas */
+.cardLink {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#moto {
+    margin-top: 30%;
+    transition: all 0.3s;
+    size: 20vh;
+}
+
+#moto:hover {
+    transform: rotate(28deg) translateX(-30%) scale(1.20);
 }
 
 .modal-content {
@@ -68,6 +65,27 @@ body {
 
 .modal-title {
     font-size: 2em;
+}
+
+tbody>tr:hover {
+    cursor: pointer;
+}
+
+/* Filtro fecha */
+.input-group {
+    width: 15em;
+    height: 2em
+}
+
+/* Contenedor de botón total gastado */
+#divTotalGastado {
+    width: 200px;
+}
+
+/* Adaptar tarjeta contenedora a la longitud del número del total gastado. */
+#totalGastado {
+    width: fit-content;
+    height: fit-content;
 }
 
 @media (min-width: 768px) {
@@ -92,20 +110,7 @@ body {
     }
 }
 
-tbody>tr:hover {
-    cursor: pointer;
-}
-
-.input-group {
-    width: 15em;
-    height: 2em
-}
-
-#divTotalGastado {
-    width: 200px;
-}
-
-#totalGastado {
-    width: fit-content;
-    height: fit-content;
+/* Solución al margen que pone bootstrap en la tabla */
+.row {
+    margin: 0 !important;
 }

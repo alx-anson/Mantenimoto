@@ -1,5 +1,5 @@
 //---Modal---
-const audio = new Audio("/audio/sonido.mp3");
+const audio = document.getElementById("audio");
 const modal = new bootstrap.Modal(document.getElementById("miModal"));
 const btnCancelar = document.getElementById("btnModCancelar")
 const btnGuardar = document.getElementById('btnModGuardar');
@@ -11,14 +11,17 @@ const frmOdometro = document.getElementById("frmOdometro");
 const frmCoste = document.getElementById("frmCoste");
 
 const cards = document.getElementsByClassName("card-text");
+const cardLinks = document.getElementsByClassName("cardLink");
 
 const moto = document.getElementById("moto");
 if (moto != null) {
-    moto.addEventListener('mouseover', arrancarMoto);
-    function arrancarMoto(evt) {
+    moto.addEventListener('mouseover', (evt) => {
         audio.play();
-    }
+        cargarCards();
+    });
 }
+
+// Desactivar botón de guardar cuando no se valida un campo.
 [frmTipo, frmFecha, frmOdometro, frmCoste].forEach((i) => {
     i.addEventListener("blur", () => {
         btnGuardar.disabled = false;
@@ -28,38 +31,38 @@ if (moto != null) {
     });
 });
 
-// Abrir modal desde añadir mantenimiento
+// Abrir modal limpio desde opción "añadir mantenimiento"
 document.getElementsByClassName('navAddMantenimiento')[0].addEventListener('click', clickAddMantenimiento);
 function clickAddMantenimiento(evt) {
     limpiarModal();
     btnCancelar.innerHTML = 'Cancelar';
     btnGuardar.innerHTML = 'Guardar';
-
     btnGuardar.disabled = true;
     modal.show();
 }
 
-btnGuardar.addEventListener('click', async () => {
+// Guardar o actualizar un mantenimiento
+btnGuardar.addEventListener('click', async (evt) => {
     const mantenimiento = {
         fecha: frmFecha.value,
         tipo: frmTipo.value,
         descripcion: frmDescripcion.value,
         odometro: frmOdometro.value,
-        coste: parseFloat(frmCoste.value)
+        coste: parseFloat(frmCoste.value.replace(',', '.'))
     }
     if (btnGuardar.innerHTML == 'Guardar') {
         await saveMantenimiento(mantenimiento);
     } else {
-        actualizarMantenimiento(mantenimiento);
+        await actualizarMantenimiento(mantenimiento);
     }
-
     modal.hide();
     cargarTabla();
 });
 
-btnCancelar.addEventListener('click', evt => {
+// Botón cancelar que es el mismo que eliminar, dependiendo de donde abras el modal.
+btnCancelar.addEventListener('click', async (evt) => {
     if (btnCancelar.innerHTML == "Eliminar") {
-        eliminarMantenimiento();
+        await eliminarMantenimiento();
     }
     modal.hide();
     cargarTabla();
@@ -73,13 +76,14 @@ function limpiarModal() {
     frmCoste.value = "";
 }
 
-
-async function cargarCards () {
+// Pongo el texto del twit en la carta, separo el enlace que viene y se lo pongo al href
+// para que al pulsar una carta te lleve al twit.
+async function cargarCards() {
     twits = await findTwits();
-    for (i = 0; i<=6; i++) {
-        cards[i].innerHTML = twits[i].texto;
+    for (i = 0; i <= 6; i++) {
+        cards[i].innerHTML = twits[i].texto.split("https")[0];
+        cardLinks[i].setAttribute('href', "https" + twits[i].texto.split("https")[1]);
     }
-    console.log(twits[1].texto);
 }
 cargarCards();
 
@@ -121,7 +125,6 @@ async function updateMantenimiento(mantenimientoData) {
 async function deleteMantenimiento(id) {
     return await enviarFetch(`/mantenimientos/${id}`, "DELETE");
 }
-
 async function findTwits() {
     return await enviarFetch("/twits");
 }

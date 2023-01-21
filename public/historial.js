@@ -20,26 +20,21 @@ async function clickRowTable(evt) {
     if (!evt.target.classList.contains('tableHead')) {
         idFila = evt.target.closest("tr").dataset.id;
         let mantenimiento = await findMantenimiento(idFila);
-        btnCancelar.innerHTML = "Eliminar";
-        btnGuardar.innerHTML = "Actualizar";
-        frmTipo.value = mantenimiento.tipo;
-        frmFecha.value = new Date(mantenimiento.fecha).toISOString().slice(0, 10);
-        frmDescripcion.value = mantenimiento.descripcion;
-        frmOdometro.value = mantenimiento.odometro;
-        frmCoste.value = mantenimiento.coste.$numberDecimal;
-        btnGuardar.disabled = false;
+        prepararCamposModal(mantenimiento);
         modal.show();
     }
 }
 
-function eliminarMantenimiento () {
-    deleteMantenimiento(idFila);
+function prepararCamposModal(mantenimiento) {
+    btnCancelar.innerHTML = "Eliminar";
+    btnGuardar.innerHTML = "Actualizar";
+    btnGuardar.disabled = false;
+    frmTipo.value = mantenimiento.tipo;
+    frmFecha.value = new Date(mantenimiento.fecha).toISOString().slice(0, 10);
+    frmDescripcion.value = mantenimiento.descripcion;
+    frmOdometro.value = mantenimiento.odometro;
+    frmCoste.value = mantenimiento.coste.$numberDecimal;
 }
-
-function actualizarMantenimiento(mantenimientoData) {
-    mantenimientoData.id = idFila;
-    updateMantenimiento(mantenimientoData);
-};
 
 btnBuscar.addEventListener('click', clickBuscar);
 function clickBuscar(evt) {
@@ -58,6 +53,18 @@ btnTotalGastado.addEventListener('click', async (evt) => {
 
 function obtenerTotal(mantenimientos) {
     let total = 0;
-    mantenimientos.forEach(coste => total+= parseFloat(coste.coste.$numberDecimal));
+    mantenimientos.forEach(coste => total += parseFloat(coste.coste.$numberDecimal));
     return total.toFixed(2);
 }
+
+// Necesito estas funciones porque manejo el modal desde el otro script, aquí tengo el id de la fila
+// que tengo que usar para eliminar o actualizar.
+async function eliminarMantenimiento() {
+    await deleteMantenimiento(idFila);
+}
+
+async function actualizarMantenimiento(mantenimientoData) {
+    mantenimientoData.id = idFila;
+    await updateMantenimiento(mantenimientoData);
+};
+

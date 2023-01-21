@@ -60,17 +60,19 @@
         </nav>
     </div>
     <main class="flex-grow-1 d-flex row flex-md-column">
-        <h2 class="row ps-4 p-2">A tener en cuenta...</h2>
+        <h2 class="row ps-4 p-2">Lo último de MotoGP ESPN...</h2>
         <div class="d-flex flex-grow-1">
             <section class="col-md-8">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 pt-0 g-4 p-0">
                     <div class="cards">
                         <div class="col">
                             <div class="card text-bg-secondary">
-                                <img src="/img/cardsImg/1.jpg" class="card-img-top" alt="Imagen">
-                                <div class="card-body">
-                                    <p class="card-text"></p>
-                                </div>
+                                <a class="cardLink" target="_blank">
+                                    <img src="/img/cardsImg/1.jpg" class="card-img-top" alt="Imagen">
+                                    <div class="card-body">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -78,10 +80,12 @@
                     <div class="cards">
                         <div class="col">
                             <div class="card text-bg-secondary">
-                                <img src="/img/cardsImg/2.jpg" class="card-img-top" alt="Imagen">
-                                <div class="card-body">
-                                    <p class="card-text"></p>
-                                </div>
+                                <a class="cardLink" target="_blank">
+                                    <img src="/img/cardsImg/2.jpg" class="card-img-top" alt="Imagen">
+                                    <div class="card-body">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -89,10 +93,12 @@
                     <div class="cards">
                         <div class="col">
                             <div class="card text-bg-secondary">
-                                <img src="/img/cardsImg/7.jpg" class="card-img-top" alt="Imagen">
-                                <div class="card-body">
-                                    <p class="card-text"><p>
-                                </div>
+                                <a class="cardLink" target="_blank">
+                                    <img src="/img/cardsImg/3.jpg" class="card-img-top" alt="Imagen">
+                                    <div class="card-body">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -100,10 +106,12 @@
                     <div class="cards">
                         <div class="col">
                             <div class="card text-bg-secondary">
-                                <img src="/img/cardsImg/4.jpg" class="card-img-top" alt="Imagen">
-                                <div class="card-body">
-                                    <p class="card-text"></p>
-                                </div>
+                                <a class="cardLink" target="_blank">
+                                    <img src="/img/cardsImg/4.jpg" class="card-img-top" alt="Imagen">
+                                    <div class="card-body">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -111,27 +119,32 @@
                     <div class="cards">
                         <div class="col">
                             <div class="card text-bg-secondary">
-                                <img src="/img/cardsImg/5.jpg" class="card-img-top" alt="Imagen">
-                                <div class="card-body">
-                                    <p class="card-text"></p>
-                                </div>
+                                <a class="cardLink" target="_blank">
+                                    <img src="/img/cardsImg/5.jpg" class="card-img-top" alt="Imagen">
+                                    <div class="card-body">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="cards">
+                    <div class="cards"> 
                         <div class="col">
                             <div class="card text-bg-secondary">
-                                <img src="/img/cardsImg/6.jpg" class="card-img-top" alt="Imagen">
-                                <div class="card-body">
-                                    <p class="card-text"></p>
-                                </div>
+                                <a class="cardLink" target="_blank">
+                                    <img src="/img/cardsImg/6.jpg" class="card-img-top" alt="Imagen">
+                                    <div class="card-body" autoplay="true">
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="col-md-4 m-0 d-none d-md-block">
+                <audio id="audio" src="/audio/sonido.mp3"></audio>
                 <img id="moto" class="img-fluid" width="1000px" src="/img/Moto.png">
             </section>
         </div>
@@ -202,8 +215,7 @@
                         </div>
                         <div class="col">
                             <label for="frmCoste" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="frmCoste" placeholder="Coste total €" min="0"
-                                required>
+                            <input type="text" class="form-control" id="frmCoste" placeholder="Coste total €" pattern="^\d+([,.]\d{1,2})?$" required>
                             <div class="invalid-feedback">Introduce un precio correcto</div>
                         </div>
                     </div>
