@@ -49,6 +49,11 @@ body {
     color: whitesmoke;
 }
 
+.cardLink:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 #moto {
     margin-top: 30%;
     transition: all 0.3s;
