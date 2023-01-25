@@ -41,29 +41,39 @@ exports.close = async function () {
 };
 
 exports.find = async function (params) {
-    const query = Mantenimiento.find();
-    const orden = params.orden;
-    const palabras = params.busqueda
-        .split(" ")
-        .map((s) => s.trim())
-        .filter((s) => s.length > 0);
-    if (palabras.length > 0) {
-        let patronDescripcion = [];
-        let patronTipo = [];
-        palabras.forEach((palabra) => {
-            patronDescripcion.push({ descripcion: new RegExp(palabra, "i") });
-            patronTipo.push({ tipo: new RegExp(palabra, "i") });
-        });
-        query.or(patronDescripcion).or(patronTipo);
+    try {
+        const query = Mantenimiento.find();
+        const orden = params.orden;
+        if (params.busqueda) {
+            const palabras = params.busqueda
+                .split(" ")
+                .map((s) => s.trim())
+                .filter((s) => s.length > 0);
+            if (palabras.length > 0) {
+                let patronDescripcion = [];
+                let patronTipo = [];
+                palabras.forEach((palabra) => {
+                    patronDescripcion.push({ descripcion: new RegExp(palabra, "i") });
+                    patronTipo.push({ tipo: new RegExp(palabra, "i") });
+                });
+                query.or(patronDescripcion).or(patronTipo);
+            }
+        }
+        if (orden && orden != "none") {
+            query.sort([['fecha', orden]]);
+        }
+        return await query.exec();
+    } catch (err) {
+        return undefined;
     }
-    if (orden && orden != "none") {
-        query.sort([['fecha', orden]]);
-    }
-    return await query.exec();
 };
 
 exports.findById = async function (mantenimientoId) {
-    return await Mantenimiento.findById(mantenimientoId);
+    try {
+        return await Mantenimiento.findById(mantenimientoId);
+    } catch (err) {
+        return undefined;
+    }
 };
 
 exports.save = async function (mantenimientoData) {
@@ -76,7 +86,11 @@ exports.save = async function (mantenimientoData) {
 };
 
 exports.delete = async function (mantenimientoId) {
+    try {
     return (await Mantenimiento.deleteOne({ _id: mantenimientoId })).deletedCount == 1;
+    } catch (err) {
+        return undefined;
+    }
 };
 
 exports.update = async function (mantenimientoData) {
@@ -91,6 +105,6 @@ exports.update = async function (mantenimientoData) {
         }
         return await Mantenimiento.findOneAndUpdate(filter, update, { runValidators: true });
     } catch (err) {
-        return err;
+        return undefined;
     }
 }

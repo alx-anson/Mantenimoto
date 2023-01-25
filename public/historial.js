@@ -11,6 +11,7 @@ async function cargarTabla() {
     let orden = ordenCronologico.value;
     let busqueda = buscador.value;
     cuerpoTabla.innerHTML = plantillaMantenimientos({ mantenimientos: await findMantenimientos(orden, busqueda) });
+   
 }
 
 cargarTabla();
