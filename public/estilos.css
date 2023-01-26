@@ -119,3 +119,25 @@ tbody>tr:hover {
 .row {
     margin: 0 !important;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #cc14ff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #a800d6;
+    border-radius: 10px;
+    border: 3px none #e00000;
+  }
