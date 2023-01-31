@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const twitter = require("./twitter.js"); //*
 
-const PORT = process.env.PUERTO;
+const PORT = process.env.PORT || process.env.PUERTO;
 
 app.use(express.json());
 app.use(express.static("public"));
