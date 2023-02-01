@@ -31,7 +31,7 @@ function prepararCamposModal(mantenimiento) {
     btnGuardar.innerHTML = "Actualizar";
     btnGuardar.disabled = false;
     frmTipo.value = mantenimiento.tipo;
-    frmFecha.value = new Date(mantenimiento.fecha).toLocaleDateString();
+    frmFecha.value = new Date(mantenimiento.fecha).toISOString().slice(0, 10);
     frmDescripcion.value = mantenimiento.descripcion;
     frmOdometro.value = mantenimiento.odometro;
     frmCoste.value = mantenimiento.coste.$numberDecimal;
