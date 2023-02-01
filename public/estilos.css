@@ -109,10 +109,6 @@ tbody>tr:hover {
     td:nth-child(3) {
         display: none;
     }
-
-    .input-group {
-        width: 10em;
-    }
 }
 
 /* Solución al margen que pone bootstrap en la tabla */
