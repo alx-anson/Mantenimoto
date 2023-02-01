@@ -18,7 +18,7 @@ const MantenimientoSchema = new mongoose.Schema(
             fechaString: {
                 get() {
                     if (this.fecha) {
-                        return this.fecha.toLocaleDateString();
+                        return this.fecha.toLocaleString("es-ES").slice(0, 9);
                     } else {
                         return "No definido.";
                     }
