@@ -3,6 +3,7 @@ const audio = document.getElementById("audio");
 const modal = new bootstrap.Modal(document.getElementById("miModal"));
 const btnCancelar = document.getElementById("btnModCancelar")
 const btnGuardar = document.getElementById('btnModGuardar');
+const tituloModal = document.getElementById('modalTitle');
 
 const frmTipo = document.getElementById("frmTipo");
 const frmFecha = document.getElementById("frmFecha");
@@ -35,6 +36,7 @@ if (moto != null) {
 document.getElementsByClassName('navAddMantenimiento')[0].addEventListener('click', clickAddMantenimiento);
 function clickAddMantenimiento(evt) {
     limpiarModal();
+    tituloModal.innerHTML = 'Crear mantenimiento';
     btnCancelar.innerHTML = 'Cancelar';
     btnGuardar.innerHTML = 'Guardar';
     btnGuardar.disabled = true;

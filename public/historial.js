@@ -1,7 +1,6 @@
 const cuerpoTabla = document.getElementById("cuerpoTabla");
 const buscador = document.getElementById("buscador");
 const ordenCronologico = document.getElementById("inputFecha");
-const btnBuscar = document.getElementById("btnBuscar");
 const btnTotalGastado = document.getElementById("btnTotalGastado");
 const totalGastado = document.getElementById("totalGastado");
 
@@ -27,6 +26,7 @@ async function clickRowTable(evt) {
 }
 
 function prepararCamposModal(mantenimiento) {
+    tituloModal.innerHTML = 'Actualizar mantenimiento';
     btnCancelar.innerHTML = "Eliminar";
     btnGuardar.innerHTML = "Actualizar";
     btnGuardar.disabled = false;
@@ -37,7 +37,7 @@ function prepararCamposModal(mantenimiento) {
     frmCoste.value = mantenimiento.coste.$numberDecimal;
 }
 
-btnBuscar.addEventListener('click', clickBuscar);
+buscador.addEventListener('change', clickBuscar);
 function clickBuscar(evt) {
     cargarTabla();
 }
