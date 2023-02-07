@@ -81,7 +81,7 @@ exports.save = async function (mantenimientoData) {
         const mantenimiento = new Mantenimiento(mantenimientoData);
         return await mantenimiento.save();
     } catch (err) {
-        return err;
+        return undefined;
     }
 };
 

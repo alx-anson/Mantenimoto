@@ -39,7 +39,7 @@ app.post("/mantenimientos", async (req, res) => {
 app.patch("/mantenimientos/:id", async (req, res) => {
     const mantenimiento = await db.update(req.body.mantenimiento);
     if (mantenimiento) res.sendStatus(204);
-    else res.status(404).send(`No existe un mantenimiento con ID=${req.params.id}.`);
+    else res.status(404).send(`Error al actualizar el mantenimiento con ID=${req.params.id}.`);
 });
 
 app.delete("/mantenimientos/:id", async (req, res) => {
