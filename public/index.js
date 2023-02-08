@@ -18,8 +18,8 @@ const moto = document.getElementById("moto");
 if (moto != null) {
     moto.addEventListener('mouseover', (evt) => {
         audio.play();
-        cargarCards();
     });
+    cargarCards();
 }
 
 // Desactivar botón de guardar cuando no se valida un campo.
@@ -82,12 +82,12 @@ function limpiarModal() {
 // para que al pulsar una carta te lleve al twit.
 async function cargarCards() {
     twits = await findTwits();
-    for (i = 0; i <= 6; i++) {
+    for (i = 0; i < 6; i++) {
         cards[i].innerHTML = twits[i].texto.split("https")[0];
         cardLinks[i].setAttribute('href', "https" + twits[i].texto.split("https")[1]);
     }
 }
-cargarCards();
+
 
 // ---- Fetch ------
 async function enviarFetch(url, metodo = "GET", body) {
