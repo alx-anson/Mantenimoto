@@ -61,7 +61,7 @@ btnGuardar.addEventListener('click', async (evt) => {
     cargarTabla();
 });
 
-// Botón cancelar que es el mismo que eliminar, dependiendo de donde abras el modal.
+// Botón cancelar que es el mismo que eliminar, dependiendo de dónde abras el modal.
 btnCancelar.addEventListener('click', async (evt) => {
     if (btnCancelar.innerHTML == "Eliminar") {
         await eliminarMantenimiento();
