@@ -3,14 +3,12 @@ const buscador = document.getElementById("buscador");
 const ordenCronologico = document.getElementById("inputFecha");
 const btnTotalGastado = document.getElementById("btnTotalGastado");
 const totalGastado = document.getElementById("totalGastado");
-
 let idFila = undefined;
 
 async function cargarTabla() {
     let orden = ordenCronologico.value;
     let busqueda = buscador.value;
     cuerpoTabla.innerHTML = plantillaMantenimientos({ mantenimientos: await findMantenimientos(orden, busqueda) });
-   
 }
 
 cargarTabla();
@@ -58,7 +56,7 @@ function obtenerTotal(mantenimientos) {
     return total.toFixed(2);
 }
 
-// Necesito estas funciones porque manejo el modal desde el otro script, aquí tengo el id de la fila
+// Necesito estas funciones aquí porque manejo el modal desde index.js, aquí tengo el id de la fila
 // que tengo que usar para eliminar o actualizar.
 async function eliminarMantenimiento() {
     await deleteMantenimiento(idFila);
