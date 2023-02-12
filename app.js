@@ -20,7 +20,8 @@ app.get("/mantenimientos", async (req, res) => {
         busqueda: req.query.busqueda,
     };
     const mantenimientos = await db.find(params);
-    if (mantenimientos) res.json(mantenimientos);
+    if (mantenimientos) res.json(mantenimientos)
+    else res.status(404).send("Ha habido un error en la petición.");
 });
 
 app.get("/mantenimientos/:id", async (req, res) => {
