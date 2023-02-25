@@ -58,7 +58,9 @@ btnGuardar.addEventListener('click', async (evt) => {
         await actualizarMantenimiento(mantenimiento);
     }
     modal.hide();
-    cargarTabla();
+    if (moto == null) {
+        cargarTabla();
+    }
 });
 
 // Botón cancelar que es el mismo que eliminar, dependiendo de dónde abras el modal.
