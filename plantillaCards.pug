@@ -1,0 +1,9 @@
+each twit in twits
+    div(class='cards')
+        div(class='col')
+            div(class="card text-bg-secondary")
+                a(class='cardLink' target='_blank' href=twit.enlace)
+                    img(src=twit.url_imagen class='card-img-top' alt="Imagen")
+                    div(class='card-body')
+                        h5(class='card-title text-dark')='¡Pincha para más info!'
+                        p(class='card-text')=twit.texto

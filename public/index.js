@@ -11,8 +11,7 @@ const frmDescripcion = document.getElementById("frmDescripcion");
 const frmOdometro = document.getElementById("frmOdometro");
 const frmCoste = document.getElementById("frmCoste");
 
-const cards = document.getElementsByClassName("card-text");
-const cardLinks = document.getElementsByClassName("cardLink");
+const contenedorCards = document.getElementById("contenedorCards")
 
 const moto = document.getElementById("moto");
 if (moto != null) {
@@ -69,7 +68,9 @@ btnCancelar.addEventListener('click', async (evt) => {
         await eliminarMantenimiento();
     }
     modal.hide();
-    cargarTabla();
+    if (moto == null) {
+        cargarTabla();
+    }
 });
 
 function limpiarModal() {
@@ -84,10 +85,16 @@ function limpiarModal() {
 // para que al pulsar una carta te lleve al twit.
 async function cargarCards() {
     twits = await findTwits();
-    for (i = 0; i < 6; i++) {
-        cards[i].innerHTML = twits[i].texto.split("https")[0];
-        cardLinks[i].setAttribute('href', "https" + twits[i].texto.split("https")[1]);
+    let colTwits = [];
+    for (i = 0; i < twits.length; i++) {
+        let twit = {
+            texto: twits[i].texto.split("https")[0],
+            enlace: "https" + twits[i].texto.split("https")[1],
+            url_imagen: twits[i].url_imagen
+        };
+        colTwits.push(twit);
     }
+    contenedorCards.innerHTML = plantillaCards({ twits: colTwits });
 }
 
 

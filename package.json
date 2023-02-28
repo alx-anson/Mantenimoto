@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "comp-mantenimientos": "pug -c -D -n plantillaMantenimientos -o public plantillaMantenimientos.pug",
+    "comp-cards": "pug -c -D -n plantillaCards -o public plantillaCards.pug",
     "start server": "node app.js"
   },
   "repository": {

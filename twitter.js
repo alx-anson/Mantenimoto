@@ -10,23 +10,29 @@ var T = new Twit({
 });
 
 let twits = [];
-T.get('search/tweets', { q: '#MotoGPxESPN', count: 100 }, function (err, data, response) {
+T.get('search/tweets', { q: '#MotoGPxESPN', count: 1000 }, function (err, data, response) {
     twits = data.statuses.map(twit => cogerTexto(twit));
 });
 
 function cogerTexto(twit) {
-    return { texto: twit.text }
+    let media = twit.entities.media;
+    if (media != null) {
+        return { texto: twit.text, url_imagen: media[0].media_url }
+    }
 };
 
 function quitarRepetidos() {
     let twitsLimpios = [];
+    let regex = /RT\s+/;
     for (twit of twits) {
-        if (!twit.texto.includes("RT")) {
-            twitsLimpios.push(twit);
+        if (twit != null) {
+            if (!regex.test(twit.texto)) {
+                twitsLimpios.push(twit);
+            } 
         }
     }
     return twitsLimpios;
 }
 exports.getTwits = async function () {
-    return quitarRepetidos().slice(0,6);
+    return quitarRepetidos();
 };
