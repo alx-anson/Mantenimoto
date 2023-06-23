@@ -84,17 +84,17 @@ function limpiarModal() {
 // Pongo el texto del twit en la carta, separo el enlace que viene y se lo pongo al href
 // para que al pulsar una carta te lleve al twit.
 async function cargarCards() {
-    twits = await findTwits();
-    let colTwits = [];
-    for (i = 0; i < twits.length; i++) {
-        let twit = {
-            texto: twits[i].texto.split("https")[0],
-            enlace: "https" + twits[i].texto.split("https")[1],
-            url_imagen: twits[i].url_imagen
-        };
-        colTwits.push(twit);
-    }
-    contenedorCards.innerHTML = plantillaCards({ twits: colTwits });
+    // twits = await findTwits();
+    // let colTwits = [];
+    // for (i = 0; i < twits.length; i++) {
+    //     let twit = {
+    //         texto: twits[i].texto.split("https")[0],
+    //         enlace: "https" + twits[i].texto.split("https")[1],
+    //         url_imagen: twits[i].url_imagen
+    //     };
+    //     colTwits.push(twit);
+    // }
+    // contenedorCards.innerHTML = plantillaCards({ twits: colTwits });
 }
 
 
